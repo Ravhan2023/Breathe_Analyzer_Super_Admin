@@ -1,77 +1,13 @@
 .login-container {
   display: flex;
   height: 100vh;
+  overflow: hidden;
+  width: 100%;
 }
 
 .login-left {
-  flex: 1.4;
-  position: relative;
-}
-
-.image-overlay {
-  position: relative;
-  height: 100%;
-  overflow: hidden;
-}
-
-.background-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.overlay-content {
-  display: flex;
-  position: absolute;
-  top: 8%;
-  left: 13%;
-}
-
-.additional-card {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-}
-.image-card {
-  position: absolute;
-
-  top: 18rem;
-  left: 19rem;
-  border-radius: 8px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-}
-
-.activity-card {
-  position: relative;
-  right: 50px;
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-  width: 318px;
-  height: 174px;
-  margin-top: 50px;
-  margin-right: 20px;
-}
-
-.activity-header,
-.additional-header {
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.login-text,
-.additional-text {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.foreground-image {
-  border-radius: 8px;
-  width: 335px;
-  height: 350px;
+  flex: 1;
+  background-color: #f7f7f7;
 }
 
 .login-right {
@@ -84,8 +20,26 @@
   padding: 0 50px;
 }
 
-.login-right h2 {
-  margin-bottom: 20px;
+.login-form-container {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 30px 20px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin: 0 auto 20px;
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .input-group {
@@ -93,51 +47,19 @@
   width: 100%;
 }
 
-.input-group label {
-  display: block;
-  margin-bottom: 5px;
-}
-
 .input-group input {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
-}
-
-.password-hint {
-  font-size: 12px;
-  color: #888;
-  margin-bottom: 20px;
-}
-
-.terms {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.terms input {
-  margin-right: 10px;
-}
-
-.terms label {
-  font-size: 12px;
-}
-
-.terms a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.terms a:hover {
-  text-decoration: underline;
+  text-align: center;
 }
 
 button {
   padding: 10px 20px;
+  width: 100%;
   border: none;
-  background-color: #007bff;
+  background-color: #6c63ff;
   color: white;
   border-radius: 4px;
   cursor: pointer;
@@ -145,5 +67,16 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #5148c5;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+.forgot-password {
+  margin-top: 15px;
+  color: #007bff;
+  cursor: pointer;
 }
