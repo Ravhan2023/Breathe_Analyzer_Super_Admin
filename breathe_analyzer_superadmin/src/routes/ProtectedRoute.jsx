@@ -1,8 +1,7 @@
-@ -1,25 +0,0 @@
 import { useContext } from "react";
 import { Navigate } from "react-router-dom";
 import PropTypes from "prop-types";
-import { UserContext } from "./api/UserContext";
+import { UserContext } from "../api/UserContext";
 
 const ProtectedRoute = ({ children, allowedRoles }) => {
   const { user, loading } = useContext(UserContext);

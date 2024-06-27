@@ -10,7 +10,13 @@ import EngineeringIcon from "@mui/icons-material/Engineering";
 import ApartmentIcon from "@mui/icons-material/Apartment";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";
+import AirplanemodeActiveIcon from "@mui/icons-material/AirplanemodeActive";
+import ListIcon from "@mui/icons-material/List";
 import SettingsIcon from "@mui/icons-material/Settings";
+import MedicalInformationIcon from "@mui/icons-material/MedicalInformation";
+import StreamIcon from "@mui/icons-material/Stream";
+import EventRepeatIcon from "@mui/icons-material/EventRepeat";
+import LiveHelpOutlinedIcon from "@mui/icons-material/LiveHelpOutlined";
 import { Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
@@ -21,28 +27,52 @@ const drawerWidth = 260;
 const menuItems = {
   "Super Admin": [
     { text: "Dashboard", icon: <DashboardIcon />, path: "/" },
-    { text: "Companies", icon: <GroupIcon />, path: "/users" },
-    { text: "Departments", icon: <SettingsIcon />, path: "/settings" },
-    { text: "Admins", icon: <SettingsIcon />, path: "/settings" },
-    { text: "Medical Team", icon: <SettingsIcon />, path: "/settings" },
-    { text: "Staff", icon: <SettingsIcon />, path: "/settings" },
-    { text: "Shifts", icon: <SettingsIcon />, path: "/settings" },
-    { text: "Medical Reports", icon: <SettingsIcon />, path: "/settings" }
+    {
+      text: "Companies",
+      icon: <AirplanemodeActiveIcon />,
+      path: "super-admin/companies",
+    },
+    {
+      text: "Departments",
+      icon: <ListIcon />,
+      path: "super-admin/departments",
+    },
+    { text: "Admins", icon: <GroupIcon />, path: "/super-admin/admins" },
+    {
+      text: "Medical Team",
+      icon: <MedicalInformationIcon />,
+      path: "/super-admin/medical-team",
+    },
+    { text: "Staff", icon: <StreamIcon />, path: "/super-admin/staff" },
+    { text: "Shifts", icon: <EventRepeatIcon />, path: "super-admin/shifts" },
+    {
+      text: "Medical Reports",
+      icon: <LiveHelpOutlinedIcon />,
+      path: "super-admin/medical-reports",
+    },
   ],
-  "Admin": [
+  Admin: [
     { text: "Dashboard", icon: <DashboardIcon />, path: "/" },
     {
       text: "Staff",
       icon: <EngineeringIcon />,
       path: "/professionals",
     },
-    { text: "Medical Results", icon: <ApartmentIcon />, path: "/materials" },
+    {
+      text: "Medical Results",
+      icon: <ApartmentIcon />,
+      path: "admin/medical-results",
+    },
     // Add more items as needed
   ],
   "Medical Staff": [
     { text: "Dashboard", icon: <DashboardIcon />, path: "/" },
     { text: "Walk In BA Test", icon: <LibraryBooksIcon />, path: "/bookstore" },
-    { text: "Report Logs", icon: <EventAvailableIcon />, path: "/events" },
+    {
+      text: "Report Logs",
+      icon: <EventAvailableIcon />,
+      path: "medical-staff/report-logs",
+    },
     { text: "Equipments", icon: <EventAvailableIcon />, path: "/events" },
     // Add more items as needed
   ],

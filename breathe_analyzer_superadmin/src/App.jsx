@@ -6,14 +6,12 @@ import {
   Navigate,
 } from "react-router-dom";
 import Login from "./components/login/Login";
-import SuperAdmin from "./components/super-admin/SuperAdmin";
-import AdminDashboard from "./components/admin/AdminDashboard";
-import StaffDashboard from "./components/medical-staff/StaffDashboard";
-import ProtectedRoute from "./ProtectedRoute";
+import ProtectedRoute from "./routes/ProtectedRoute";
 import { UserContext } from "./api/UserContext";
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import Sidebar from "./components/sidebar/Sidebar";
+import routes from "./routes/routes";
 
 function App() {
   const { user } = useContext(UserContext);
@@ -26,31 +24,43 @@ function App() {
         {user && <Sidebar />}
         <Routes>
           <Route path="/login" element={<Login />} />
-          s
-          <Route
-            path="/super-admin"
-            element={
-              <ProtectedRoute allowedRoles={["Super Admin"]}>
-                <SuperAdmin />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/admin"
-            element={
-              <ProtectedRoute allowedRoles={["Admin"]}>
-                <AdminDashboard />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/medical-staff"
-            element={
-              <ProtectedRoute allowedRoles={["Medical Staff"]}>
-                <StaffDashboard />
-              </ProtectedRoute>
-            }
-          />
+
+          {routes.superAdmin.map(({ path, component: Component }) => (
+            <Route
+              key={path}
+              path={`/${path}`}
+              element={
+                <ProtectedRoute allowedRoles={["Super Admin"]}>
+                  <Component />
+                </ProtectedRoute>
+              }
+            />
+          ))}
+
+          {routes.admin.map(({ path, component: Component }) => (
+            <Route
+              key={path}
+              path={`/${path}`}
+              element={
+                <ProtectedRoute allowedRoles={["Admin"]}>
+                  <Component />
+                </ProtectedRoute>
+              }
+            />
+          ))}
+
+          {routes.medicalStaff.map(({ path, component: Component }) => (
+            <Route
+              key={path}
+              path={`/${path}`}
+              element={
+                <ProtectedRoute allowedRoles={["Medical Staff"]}>
+                  <Component />
+                </ProtectedRoute>
+              }
+            />
+          ))}
+
           <Route
             path="/"
             element={
